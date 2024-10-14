@@ -1,153 +1,113 @@
-/* Import font Pacifico từ Google */
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-
-/* Thiết lập chung */
-body {
-    font-family: Arial, sans-serif;
+/* Reset some default styles */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    box-sizing: border-box;
 }
 
-h1 {
-    font-family: 'Pacifico', cursive;
-    font-size: 48px;
-    color: #ff5733;
-    margin-left: 20px;
-}
-
-/* Menu điều hướng */
+/* Styles for nav bar */
 nav ul {
-    list-style: none;
+    list-style-type: none;
     padding: 0;
     margin: 0;
-    background-color: #333;
-    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
 }
 
 nav ul li {
-    display: inline-block;
+    position: relative; /* Cần để dropdown thả xuống từ đây */
     margin-right: 20px;
 }
 
 nav ul li a {
-    display: block;
-    padding: 14px 20px;
-    color: #fff;
-    text-align: center;
     text-decoration: none;
+    padding: 10px 15px;
+    color: white;
+    display: block;
 }
 
-nav ul li a:hover {
-    background-color: #575757;
+/* Dropdown styles */
+.dropdown-content {
+    display: none; /* Ẩn menu thả xuống */
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    min-width: 160px;
+    z-index: 1;
+    padding: 0;
 }
 
-/* Đăng nhập và đăng ký */
-.login-register {
-    margin: 20px;
+.dropdown-content li {
+    margin-right: 0; /* Xóa margin trong dropdown */
 }
 
-.login-register form {
-    display: inline-block;
-    margin-right: 20px;
+.dropdown-content li a {
+    padding: 15px 20px;
+    font-size: 16px;
+    color: black;
+    display: block;
+    white-space: nowrap;
 }
 
-.login-register input {
-    padding: 8px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+/* Hiển thị dropdown khi hover */
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
-/* Nút chung */
-button {
-    padding: 8px 16px;
-    background-color: #ff5733;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+.dropdown-content li a:hover {
+    background-color: #ddd; /* Đổi màu khi hover trong dropdown */
 }
 
-button:hover {
-    background-color: #e64a19;
+nav ul li:last-child {
+    margin-right: 0;
 }
 
-/* Tìm kiếm sản phẩm */
-.search {
-    margin: 20px;
-}
-
-.search input, .search select {
-    padding: 8px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-/* Danh sách sản phẩm */
+/* Styles for the product section */
 .product-list {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    padding: 20px;
 }
 
 .product-item {
-    background-color: #fff;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding: 10px;
     width: calc(25% - 40px);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .product-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-.product-item h3 {
-    font-size: 20px;
-    color: #333;
-}
-
-.product-item p {
-    font-size: 18px;
-    color: #777;
+    max-width: 100%;
 }
 
 .product-item button {
-    margin-top: 10px;
-    width: 100%;
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
 }
 
-/* Phân trang */
+.product-item button:hover {
+    background-color: #005f6b;
+}
+
+/* Styles for pagination */
 .pagination {
-    text-align: center;
-    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .pagination button {
     margin: 0 5px;
-    padding: 10px;
-    background-color: #100101;
-    border: 1px solid #060000;
+    padding: 5px 10px;
     cursor: pointer;
 }
 
-.pagination button:hover {
-    background-color: #e0e0e0;
-}
-
-/* Footer */
+/* Footer styling */
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #333;
-    color: #fff;
+    background-color: #f1f1f1;
     margin-top: 20px;
 }
-
-
