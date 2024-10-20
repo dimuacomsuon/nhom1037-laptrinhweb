@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fclothes</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="./Fclothes.png" type="image/x-icon" />
+    <link rel="stylesheet" href="banhang.css" />
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <script src="js/bootstrap.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <script src="js/bootstrap.min.js"></script>
+    <link href="css/bootstrap.bundle.css" rel="stylesheet" />
+    <script src="js/bootstrap.bundle.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>
+        <a style="max-width: 100px; text-decoration: none; color: inherit">
+          <img
+            src="Fclothes.png"
+            alt="Logo"
+            style="max-width: 150px; height: 100px"
+          />
+        </a>
+        <div class="contact-info">Contact with us: (+84)898372112</div>
+      </h1>
+    </header>
+
+    <section class="product-carousel">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel" name="popuptitle">
+            Dang nhap
+          </h1>
+        </div>
+        <div class="modal-body">
+          <form action="">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label" name="email"
+                >Email address</label
+              >
+              <input
+                type="email"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+              />
+              <div id="emailHelp" class="form-text"></div>
+            </div>
+            <div class="mb-3">
+              <label
+                for="exampleInputPassword1"
+                class="form-label"
+                name="password"
+                >Password</label
+              >
+              <input
+                type="password"
+                class="form-control"
+                id="exampleInputPassword1"
+              />
+            </div>
+
+            <div class="row row-cols-2">
+              <a class="col-md-6 btn btn-primary" onclick="xacthuc()">
+                Dang Nhap
+              </a>
+              <a class="col-md-6 btn btn-info" onclick="dangky()"> Dang Ky </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 Cửa hàng trực tuyến</p>
+    </footer>
+    <script>
+      function dangky() {
+        var dangky1 = document.getElementById("exampleInputEmail1").value;
+
+        alert(dangky1);
+      }
+      function xacthuc() {
+        var email1 = document.getElementById("exampleInputEmail1").value;
+        var paswrord1 = document.getElementById("exampleInputPassword1").value;
+        if (
+          (email1 == "" && paswrord1 == "") ||
+          (email1 != "" && paswrord1 == "") ||
+          (email1 == "" && paswrord1 != "")
+        ) {
+          window.location.href = "home.html";
+        } else {
+          window.location.href = "banhang.html";
+        }
+      }
+    </script>
+  </body>
+</html>
