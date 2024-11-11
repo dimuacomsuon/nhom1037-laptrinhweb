@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết sản phẩm - Fclothes</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link href="responsive.css" rel="stylesheet">
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <style>
+        /* Custom CSS */
+        .product-detail-container {
+            margin: 30px auto;
+            max-width: 1200px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .product-image-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .product-main-image {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .product-thumbnails {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .product-thumbnail {
+            width: 80px;
+            height: 80px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .product-thumbnail:hover {
+            transform: scale(1.1);
+        }
+
+        .product-info-section {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .product-brand {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .product-price {
+            font-size: 28px;
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .product-price-old {
+            font-size: 18px;
+            color: #999;
+            text-decoration: line-through;
+            margin-right: 10px;
+        }
+
+        .product-discount {
+            background-color: #ff4d4d;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .product-description {
+            font-size: 16px;
+            margin: 15px 0;
+            color: #666;
+        }
+
+        .size-selection, .quantity-selection, .actions {
+            margin-top: 20px;
+        }
+
+        .size-selection label, .quantity-selection label {
+            font-size: 16px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .size-option {
+            display: inline-block;
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-right: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .size-option:hover, .size-option.selected {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        .quantity-input {
+            width: 60px;
+            text-align: center;
+            margin-right: 10px;
+        }
+
+        .actions button {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .add-to-cart-button {
+            background-color: #27ae60;
+            color: #fff;
+        }
+
+        .add-to-cart-button:hover {
+            background-color: #219150;
+        }
+
+        .buy-now-button {
+            background-color: #e74c3c;
+            color: #fff;
+        }
+
+        .buy-now-button:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div id="header"> <!-- header -->
+        <div class="top"> <!-- top -->
+            <div class="container">
+                <ul class="top-support"> 
+                    <li><i class="fa fa-phone-square"></i><span>(+84) 892 329 1123</span></li>
+                    <li><a href=""><i class="fa fa-envelope-square"></i><span>fclothesstore@gmail.com</span></a></li>
+                </ul>
+                <div class="top-offers">
+                    <div class="alert alert-warning alert-dismissible fade in offers" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times-circle"></i></span></button>
+                        Free Shipping <a href="">on All Orders Over</a> $75!
+                    </div>
+                </div>
+                <div class="top-control">
+                  <li id="login-area"><a href="login.html">Đăng nhập</a></li>
+                  <li id="user-area" style="display:none;">
+                      <span id="welcome-message" style="color: white;"></span>
+                      <button id="logout-btn">Đăng xuất</button>
+                  </li>
+                </div>
+                <div class="clearfix"></div>
+                <div class="top-offers show-mobile">
+                    <div class="alert alert-warning alert-dismissible fade in offers" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times-circle"></i></span></button>
+                        Free Shipping <a href="">on All Orders Over</a> $75!
+                    </div>
+                </div>
+            </div>
+        </div> <!-- top -->
+        
+        <div id="believe-nav"> <!-- Nav -->
+            <div class="container">
+                <div class="min-marg">
+                    <nav class="navbar navbar-default">
+                        <!-- <div class="container-fluid"> -->
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="index.html"><img src="images/logofc.png" style="width: 100px;height: 100px;" alt=""></a>
+                            </div>
+
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav">
+                                  <li><a href="index.html">Trang chủ</a></li>
+                                  <li class="dropdown menu">
+                                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sản phẩm <i class="fa fa-angle-down"></i></a>
+                                      <ul class="dropdown-menu megamenu" role="menu">
+                                          <li>
+                                              <div class="">
+                                                  <div class="mega-sub">
+                                                      <ul>
+                                                          <li><a href="kit.html">Trang phục thể thao</a></li>
+                                                          <li><a href="giaythethao.html">Giày thể thao</a></li>
+                                                          <li><a href="phukienkhac.html">Các phụ kiện khác</a></li>
+                                                      </ul>
+                                                  </div>
+                                              </div>
+                                          </li>
+                                      </ul>
+                                  </li>
+
+                                    <li><a href="giohang.html">Giỏ hàng</a></li>
+                                    <li><a href="contact.html">Lịch sử mua hàng</a></li>
+                                </ul>
+                               
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="menu-search-form">
+                                        <a href="#" id="open-srch-form"><img src="images/srch.png" alt="srch"></a>
+                                    </li>
+                                    <li><a href="#"><img src="images/pav.png" alt="pav"><span>2</span></a></li>
+                                    <li><a href="#"><img src="images/bag.png" alt="bag"><span>2</span></a></li>
+                                    <li id="open-srch-form-mod">
+                                      
+                                      <form class="side-search" onsubmit="event.preventDefault(); searchProducts();">
+                                          <div class="input-group">
+                                            <input type="text" class="form-control search-wid" placeholder="Search Here" aria-describedby="basic-addon1">
+                                            <a href="#" class="input-group-addon btn-side-search" id="basic-addon1" onclick="searchProducts()">
+                                              <i class="fa fa-search"></i>
+                                            </a>
+                                          </div>
+                                        </form>
+                                        <div id="search-results" style="margin-top: 10px;"></div>
+                                        
+                                    </li>
+                                </ul>
+                            </div><!-- /.navbar-collapse -->
+                        <!--</div> -->
+                        
+                    </nav>
+                </div>
+                <div class="srch-form">
+                    <form class="side-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control search-wid" placeholder="Search Here" aria-describedby="basic-addon2">
+                            <a href="" class="input-group-addon btn-side-serach" id="basic-addon2"><i class="fa fa-search"></i></a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div> <!-- Nav -->
+        <div id="cat-nav">
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#cat-nav-mega">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="cat-nav-mega">
+                    <ul class="nav navbar-nav">
+                      <p>.</p>
+                      
+                        </li>
+                    </ul>
+                     
+                </div><!-- /.navbar-collapse -->
+            </nav>
+        </div>
+        </div>      
+    </div> <!-- header -->
+
+    <div class="container">
+        <div class="product-detail-container">
+            <!-- Product Image Section -->
+            <div class="product-image-section">
+                <img src="anhdoanweb/img24.png" alt="Hình ảnh sản phẩm" class="product-main-image" onclick="showImage('anhdoanweb/img24.png')">
+                
+                <!-- Thumbnails -->
+                <div class="product-thumbnails">
+                    <img src="anhdoanweb/img24.png" alt="Ảnh phụ 1" class="product-thumbnail" onclick="showImage('anhdoanweb/img24.png')">
+                    <img src="anhdoanweb/img34.png" alt="Ảnh phụ 2" class="product-thumbnail" onclick="showImage('anhdoanweb/img34.png')">
+                    <img src="anhdoanweb/img34.png" alt="Ảnh phụ 3" class="product-thumbnail" onclick="showImage('anhdoanweb/img34.png')">
+                </div>
+            </div>
+
+            <!-- Product Info Section -->
+            <div class="product-info-section">
+                <h1 class="product-title">Bóng Thi Đấu Ngoại Hạng Anh 24/25</h1>
+                <p class="product-brand">Thương hiệu: Nike | Mã sản phẩm: #5941</p>
+                <p>
+                    <span class="product-price">15$</span>
+                    <span class="product-price-old">19$</span>
+                    <span class="product-discount">-21%</span>
+                </p>
+                <p class="product-description">Bóng thi đấu Ngoại Hạng Anh đến từ thương hiệu Nike.</p>
+
+              
+
+                <!-- Quantity Selection -->
+                <div class="quantity-selection">
+                    <label>Số lượng:</label>
+                    <input type="number" class="quantity-input" value="1" min="1" id="quantity-input">
+                </div>
+
+                <!-- Promotion Box -->
+                <div class="promotion-box">
+                    <div class="promotion-title">Ưu đãi khi mua hàng:</div>
+                    <p class="promotion-item">- Giảm 15% cho đơn hàng đầu tiên. Mã: <span class="coupon-code">NEW15</span></p>
+                    <p class="promotion-item">- Miễn phí vận chuyển với đơn hàng từ 40$</p>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="actions">
+                    <button class="add-to-cart-button">Thêm vào giỏ hàng</button>
+                    <button class="buy-now-button">Mua Ngay</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer"><!-- Footer -->
+        <div class="footer-widget">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="text-widget">
+                            <div class="wid-title">Welcome to</div>
+                            <h1> FClothes</h1>
+                            <p>415 Điện Biên Phủ, Phường 25, Bình Thạnh, Hồ Chí Minh, Việt Nam<br/>Thời gian làm việc: 6h00-20h00</a>
+                            </p>
+                            <ul class="ft-soc clearfix">
+                                <li><a href=""><i class="fa fa-facebook-square"></i></a></li>
+                                <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                                <li><a href=""><i class="fa fa-google-plus-square"></i></a></li>
+                                <li><a href=""><i class="fa fa-instagram"></i></a></li>
+                                <li><a href=""><i class="fa fa-pinterest"></i></a></li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="subscribe">
+                            <div class="wid-title">Đánh giá</div>
+                            <p>
+                              Hãy đánh giá Fclothes. Bạn sẽ nhận được ưu đãi cho các đợt mua sau. 
+                            </p>
+                            <form>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Nhập đánh giá...">
+                                </div>
+                                <button type="submit" class="btn btn-default">Nhập</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-text">
+            <div class="container">
+                <p>Copyright © 2024 FCLOTHES - TRANG BÁN HÀNG UY TÍN SỐ MỘT CHÂU Á</p>
+            </div>
+        </div>
+    </div><!-- Footer -->
+
+    <!-- Scripts -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        function showImage(src) {
+            document.querySelector('.product-main-image').src = src;
+        }
+
+        function selectSize(element) {
+            document.querySelectorAll('.size-option').forEach(el => el.classList.remove('selected'));
+            element.classList.add('selected');
+        }
+    </script>
+</body>
+</html>
